@@ -1,0 +1,112 @@
+Daum
+메일
+통합검색
+관련 서비스 펼치기
+하단메뉴ON편지쓰기받은편지함
+받은편지함
+보낸사람
+Ben Lin
+받는 사람/참조 펼치기
+Re: [Urgent: SK Hynix] Marathon-lb health check issue
+20.08.25 18:53중요메일표시 켜기
+Since the bundle generation can take a while, you can also run a one-liner to grab some initial logs for support to review:
+
+d=$(date -u +%Y%m%d-%H%M%S) && tmp_dir=/tmp/dcos_diagnostics-${d} && if sudo systemctl | grep dcos | grep master > /dev/null; then node_type=master; elif sudo systemctl | grep dcos | grep public > /dev/null; then node_type=agent_public; else node_type=agent; fi; node_dir=${tmp_dir}/$(/opt/mesosphere/bin/detect_ip)_${node_type} && mkdir -p ${node_dir} && sudo dmesg -T > ${node_dir}/dmesg-0.output && for unit in $(sudo systemctl list-units --no-legend --no-pager --plain 'dcos-*' | awk '{print $1}'); do echo "Saving logs for ${unit}"; sudo journalctl -au ${unit} > ${node_dir}/${unit}; done && tar -czvf $(/opt/mesosphere/bin/detect_ip)_${node_type}-${d}.tgz -C $tmp_dir .
+
+On Tue, Aug 25, 2020 at 5:51 PM Ben Lin <ben.lin@d2iq.com> wrote:
+Hi YJ,
+
+Please create a support ticket for this issue and run the following commands to generate a log bundle: 
+
+In DC/OS 2.0 and later, run these commands:
+
+dcos diagnostics create
+dcos diagnostics wait
+(This may take some time for the process to complete)
+dcos diagnostics list
+dcos diagnostics download
+In DC/OS 1.13 and earlier, run these commands:
+
+dcos node diagnostics create all
+dcos node diagnostics --status
+(wait for progress to reach 100%)
+dcos node diagnostics download <bundle_name>
+More info: https://support.d2iq.com/s/article/Create-a-DC-OS-Diagnostic-bundle
+
+Once the bundle is generated, please attach it to the ticket. 
+
+Thanks,
+-ben
+
+On Tue, Aug 25, 2020 at 5:44 PM 양영진 <yjyang@kb-sys.co.kr> wrote:
+Dear Ben,
+
+We have urgent issue on SK hynix production stage.
+Please do the needful as our following first diagnosis.
+We can ask log but it takes time so please guide us if we can get some more information on site quickly.
+
+——————————————————————-
+Symptom: Container service stops due to marathon-lb’s unknown status.
+- Some container service doesn’t work properly
+- So we checked marathon-lb, one has automatically restarted because health check failed twice, the other one shows one time fail and one time success.
+- After manual restart of marathon-lb now all services are OK.
+
+mesos log : marathon-lb instance
+curl exited with status 7 : curl (7) Failed connect to 127.0.0.1:9090; connection refused
+
+marathon instance log (assuming root cause):
+
+[alert] 236/015623 (48) : starting frontend apps_gipms_dev_gipms-api-fab_47161: cannot bind socket [0.0.0.0:47161]
+[warning] 236/015627 (24670) : bind on socket 1 busy while trying to enable frontend global
+[warning] 236/015627 (24670) : some proxies refused to resume, a restart is probably needed to resume safe operations
+
+Request from customer:
+1) Why cannot bind socket happens
+2) Why marathon-lb get affect
+
+Thanks and best regards,
+Y. J.
+
+-------------------------------------------------------
+
+
+양영진 Yang, Youngjin
+
+
+마케팅전략본부 | 본부장
+
+
+Marketing Strategy Division | Director
+
+
+
+
+(주)케이비시스 | TEL 02.2039.0100 | FAX 02.2039.0101
+
+
+서울특별시 구로구 디지털로 288 대륭포스트타워 1차 1202호
+
+
+KBSYS Inc., 1202, Dae-Ryung Post Tower 1st.,
+
+
+288, Digital-ro, Guro-gu, Seoul, South Korea
+
+
+-------------------------------------------------------
+
+
+Hybrid & Edge Cloud | Big Data Portal | Enterprise | Media | SCADA/HMI
+
+
+D2IQ Partner Reseller
+
+
+Daum 메일앱 설치하기
+맨위로
+Daum
+로그아웃
+PC화면
+기존메일
+© Kakao Corp.
+메일관련 동작버튼모음답장전달삭제추가메뉴 
