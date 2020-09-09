@@ -1,0 +1,13 @@
+#DC/OS account
+curl -i -X POST https://192.168.0.240/acs/api/v1/auth/login -d '{"uid": "<id>", "password": "<password>"}' -H 'Content-Type: application/json' --insecure
+curl -i -X POST http://192.168.0.240/acs/api/v1/auth/login -d '{"uid": "<id>", "password": "<password>"}' -H 'Content-Type: application/json'
+
+
+curl -H "Authorization: token=eyJ0eXAiOiJKV1QiLCJhbGci123OiJSUzI1NiJ9.eyJ1aWQiOiJh12ZG1pbiIsImV4cCI6MT3YwMDA3NDY1Mn0.sy5yoJ1231235SazW57d8j20Sj53PntEBIiR2r_ucZHtN5AEr8BUMlj7ShDD4Er53ycL7Cbo6yKycdHNY11h4BeAMC02NZZ7HEw5amRHjgdSpxAbTWHBIo_I_h2LrcMYcJlIOMgry_7p3ppGQRJKlybDvb4F0SQtYVihkje7Y1mRn1savy9e_S5kF0cbzV_oe7zRrfnNMv0MS5mPcY_fFz8u987MSt5pLS20ARqo92n5MCoiVhN--7j3PSONDEHD-tmUgwB32FvajPCWzNgK56jF2gvLa2Dcdb-QTZbxIaZM226c-X2xLXf6FAGtJgkJdR5sJPM1kuqabjjPVwEDY3FgI1dTQ"
+
+
+curl -H "Authorization: token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.ey123123J1aWQiOiJhZG1pbiIsImV4c1CI6MTYwMDA32312NDY1Mn0.sy5yoJ5SazW57d81231j20Sj53PntEBIiR2r_ucZHtN5AEr8BUMlj7ShDD4Er53ycL7Cbo6yKycdHNY11h4BeAMC02NZZ7HEw5amRHjgdSpxAbTWHBIo_I_h2LrcMYcJlIOMgry_7p3ppGQRJKlybDvb4F0SQtYVihkje7Y1mRn1savy9e_S5kF0cbzV_oe7zRrfnNMv0MS5mPcY_fFz8u987MSt5pLS20ARqo92n5MCoiVhN--7j3PSONDEHD-tmUgwB32FvajPCWzNgK56jF2gvLa2Dcdb-QTZbxIaZM226c-X2xLXf6FAGtJgkJdR5sJPM1kuqabjjPVwEDY3FgI1dTQ" http://192.168.0.240/service/marathon/v2/apps/nexus
+
+curl -H "Authorization: token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiJhZG1pbiIsImV4cCI6MTYwMDA3NDY1Mn0.sy5yoJ5SazW57d3PntEBIiR2r_ucZHtN5AEr8BUMlj7ShDD4Er53ycL7Cbo6yKycdHNY11h4BeAMC02NZZ7HEw5amRHjgdSpxAbTWHBIo_I_h2LrcMYcJlIOMgry_7p3ppGQRJKlybDvb4F0SQtYVihkje7Y1mRn1savy9e_S5kF0cbzV_oe7zRrfnNMv0MS5mPcY_fFz8u987MSt5pLS20ARqo92n5MCoiVhN--7j3PSONDEHD-tmUgwB32FvajPCWzNgK56jF2gvLa2Dcdb-QTZbxIaZM226c-X2xLXf6FAGtJgkJdR5sJPM1kuqabjjPVwEDY3FgIdTQ" http://192.168.0.240/service/marathon/v2/apps/nginx-test/tasks/
+
+
