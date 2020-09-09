@@ -10,4 +10,6 @@ curl -H "Authorization: token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.ey123123J1aWQ
 
 curl -H "Authorization: token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiJhZG1pbiIsImV4cCI6MTYwMDA3NDY1Mn0.sy5yoJ5SazW57d3PntEBIiR2r_ucZHtN5AEr8BUMlj7ShDD4Er53ycL7Cbo6yKycdHNY11h4BeAMC02NZZ7HEw5amRHjgdSpxAbTWHBIo_I_h2LrcMYcJlIOMgry_7p3ppGQRJKlybDvb4F0SQtYVihkje7Y1mRn1savy9e_S5kF0cbzV_oe7zRrfnNMv0MS5mPcY_fFz8u987MSt5pLS20ARqo92n5MCoiVhN--7j3PSONDEHD-tmUgwB32FvajPCWzNgK56jF2gvLa2Dcdb-QTZbxIaZM226c-X2xLXf6FAGtJgkJdR5sJPM1kuqabjjPVwEDY3FgIdTQ" http://192.168.0.240/service/marathon/v2/apps/nginx-test/tasks/
 
+api 정보
+https://docs.d2iq.com/mesosphere/dcos/1.13/deploying-services/marathon-api/#/apps/V2AppsByAppId
 
